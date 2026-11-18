@@ -1,14 +1,14 @@
 # Unbox Korea
 
-한국의 문화와 이야기를 발견하고 공유하는 플랫폼의 첫 화면입니다.
+A landing page for discovering and sharing Korean culture and stories.
 
-## 시작하기
+## Getting started
 
-Node.js와 npm이 설치된 환경에서 다음 명령을 실행합니다.
+With Node.js and npm installed, run:
 
 ```bash
 npm install
 npm run dev
 ```
 
-현재 로그인 화면은 UI 시안이며 인증 서버와 연결되어 있지 않습니다.
+The login form is a UI prototype and is not connected to an authentication service.
