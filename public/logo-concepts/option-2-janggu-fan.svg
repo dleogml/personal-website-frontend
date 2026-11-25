@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 330" role="img" aria-labelledby="title">
+  <title>Option 2 — Janggu drum and folding fan in an open box</title>
+  <rect width="500" height="330" rx="18" fill="#111719"/>
+  <g stroke="#101820" stroke-width="9" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M127 73Q160 49 193 73L181 152Q160 169 139 152Z" fill="#f3d8ad"/>
+    <path d="M140 81Q160 98 180 81M136 110Q160 128 184 110M139 143Q160 126 181 143" fill="none" stroke="#ce4d3e" stroke-width="5"/>
+    <path d="M157 70V153" fill="none" stroke="#3989ad" stroke-width="5"/>
+    <path d="M248 148 219 65Q258 42 298 63L270 148Z" fill="#f5eddb"/>
+    <path d="M248 148 229 66m19 82-2-86m24 85 9-84m-9 84 28-84" fill="none" stroke="#3985a7" stroke-width="4"/>
+    <path d="M248 148l11 25 11-25" fill="#e4a142"/>
+    <path d="M188 198 78 154l49-26 106 56Zm124 0 110-44-49-26-106 56Z" fill="#f5a342"/>
+    <path d="M207 203 149 129l49 17 47 46Zm106 0 58-74-49 17-47 46Z" fill="#eb7339"/>
+    <path d="M166 194 250 220 334 194V270L250 308 166 270Z" fill="#f19b3f"/>
+    <path d="M166 194 250 220V308L166 270Z" fill="#f6ae4c"/><path d="M334 194 250 220V308L334 270Z" fill="#e7593f"/>
+  </g>
+  <text x="250" y="28" text-anchor="middle" fill="#fff" font-family="Arial,sans-serif" font-size="22" font-weight="700" letter-spacing="5">UNBOX</text>
+  <text x="250" y="326" text-anchor="middle" fill="#f48645" font-family="Arial,sans-serif" font-size="23" font-weight="700" letter-spacing="5">KOREA</text>
+</svg>

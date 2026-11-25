@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 330" role="img" aria-labelledby="title">
+  <title>Option 3 — Korean folk-art tiger and magpie in an open box</title>
+  <rect width="500" height="330" rx="18" fill="#111719"/>
+  <g stroke="#101820" stroke-width="8" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M142 83q14-22 27 0l-4 17h-20Zm72 0q14-22 27 0l-4 17h-20Z" fill="#f3a443"/>
+    <path d="M145 106q0-37 46-38 48 2 47 39l-12 43q-33 29-69 0Z" fill="#f2b960"/>
+    <path d="M162 109q11-12 20 0m29 0q11-12 20 0" fill="none" stroke-width="6"/>
+    <path d="M179 127q12 12 26 0" fill="none" stroke="#b94c3b" stroke-width="6"/>
+    <path d="M157 79l9 12m56-12-9 12m-47 26 13 3m43-3-13 3" fill="none" stroke="#263c4b" stroke-width="5"/>
+    <path d="M294 76q29-17 48 7l-9 38-32-4Z" fill="#303c4c"/>
+    <path d="M307 82l-4-17 15 12 12-16 2 24" fill="#3a8bae"/>
+    <circle cx="313" cy="94" r="3" fill="#fff"/><path d="M338 99l18 8-19 5" fill="#e75b3e"/>
+    <path d="M191 198 81 154l49-26 106 56Zm118 0 110-44-49-26-106 56Z" fill="#f5a342"/>
+    <path d="M210 203 151 128l49 18 47 46Zm100 0 59-75-49 18-47 46Z" fill="#eb7339"/>
+    <path d="M166 194 250 220 334 194V270L250 308 166 270Z" fill="#f19b3f"/>
+    <path d="M166 194 250 220V308L166 270Z" fill="#f6ae4c"/><path d="M334 194 250 220V308L334 270Z" fill="#e7593f"/>
+  </g>
+  <text x="250" y="28" text-anchor="middle" fill="#fff" font-family="Arial,sans-serif" font-size="22" font-weight="700" letter-spacing="5">UNBOX</text>
+  <text x="250" y="326" text-anchor="middle" fill="#f48645" font-family="Arial,sans-serif" font-size="23" font-weight="700" letter-spacing="5">KOREA</text>
+</svg>

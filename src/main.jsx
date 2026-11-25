@@ -33,7 +33,7 @@ function App() {
 
       <header className="topbar">
         <a className="brand" href="#home" aria-label="Unbox Korea home">
-          <span className="brand-mark">U<span>K</span></span>
+          <img className="brand-mark" src="/logo-icon.png" alt="" />
           <span className="brand-name">UNBOX <b>KOREA</b></span>
         </a>
         <nav className="top-links" aria-label="Main navigation">
@@ -46,8 +46,8 @@ function App() {
       <section className="hero" id="home">
         <div className="intro">
           <div className="eyebrow"><span className="eyebrow-line" /> A WINDOW INTO KOREA <span className="eyebrow-dot">✳</span></div>
-          <h1>Unbox the<br /><em>hidden Korea.</em></h1>
-          <p>Go beyond the familiar and find a Korea waiting to be discovered.<br />Stories, places, and culture—shared with the world.</p>
+          <h1>Unbox<br /><em>Korea’s Hidden Side.</em></h1>
+          <p>Go beyond the familiar and discover a new side of Korea.<br />Stories, places, and culture—shared with the world</p>
           <div className="scroll-cue"><span className="scroll-icon"><ArrowDown size={14} /></span> SCROLL TO DISCOVER</div>
         </div>
 

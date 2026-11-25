@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 330" role="img" aria-labelledby="title">
+  <title>Option 1 — Gat, Hahoe mask and Gyeongbokgung in an open box</title>
+  <rect width="500" height="330" rx="18" fill="#111719"/>
+  <g stroke="#101820" stroke-width="9" stroke-linejoin="round" stroke-linecap="round">
+    <!-- Gat -->
+    <path d="M76 112 Q125 79 174 112 L162 125 Q125 109 88 125Z" fill="#f2f0e6"/>
+    <path d="M97 107 Q102 70 125 63 Q148 70 153 107Z" fill="#202a35"/>
+    <path d="M93 111 Q125 121 157 111" fill="none" stroke="#d74940" stroke-width="4"/>
+    <!-- Hahoe mask -->
+    <path d="M219 66 Q263 57 286 87 Q298 112 274 145 Q251 166 225 144 Q205 119 208 91Z" fill="#efbd75"/>
+    <path d="M221 99q11-12 22 0m17 0q11-12 21 0" fill="none" stroke-width="6"/>
+    <path d="M237 119q15 12 31-1" fill="none" stroke="#bd5039" stroke-width="6"/>
+    <path d="M250 100l-6 13 9 2" fill="none" stroke-width="4"/>
+    <!-- Gyeongbokgung front gate -->
+    <path d="M322 110 Q376 54 431 110 L418 120 Q376 91 335 120Z" fill="#e84c3e"/>
+    <path d="M340 113V157H412V113M351 120v31m17-31v31m18-31v31m17-31v31" fill="#f5e8cc"/>
+    <path d="M329 157h94v13h-94z" fill="#3986ad"/>
+    <!-- Open carton flaps -->
+    <path d="M184 201 71 154 119 128 228 184Z" fill="#f5a342"/>
+    <path d="M316 201 429 154 381 128 272 184Z" fill="#f5a342"/>
+    <path d="M201 205 141 128 192 145 239 191Z" fill="#ee8038"/>
+    <path d="M299 205 359 128 308 145 261 191Z" fill="#ee8038"/>
+    <!-- Box body -->
+    <path d="M166 194 250 220 334 194 334 270 250 308 166 270Z" fill="#f19b3f"/>
+    <path d="M166 194 250 220V308L166 270Z" fill="#f6ae4c"/>
+    <path d="M334 194 250 220V308L334 270Z" fill="#e7593f"/>
+    <path d="M166 194 205 207 190 234 166 220Z" fill="#f4d28d" stroke-width="6"/>
+    <path d="M334 194 295 207 310 234 334 220Z" fill="#f4d28d" stroke-width="6"/>
+  </g>
+  <text x="250" y="28" text-anchor="middle" fill="#fff" font-family="Arial,sans-serif" font-size="22" font-weight="700" letter-spacing="5">UNBOX</text>
+  <text x="250" y="326" text-anchor="middle" fill="#f48645" font-family="Arial,sans-serif" font-size="23" font-weight="700" letter-spacing="5">KOREA</text>
+</svg>
