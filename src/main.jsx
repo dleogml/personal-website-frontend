@@ -38,7 +38,7 @@ function App() {
         </a>
         <nav className="top-links" aria-label="Main navigation">
           <a href="#discover">Discover</a>
-          <a href="#about">About us</a>
+          <a href="/about.html">About us</a>
           <span className="language"><Globe2 size={15} /> EN</span>
         </nav>
       </header>
@@ -73,8 +73,11 @@ function App() {
 
       <footer className="bottom-bar" id="discover">
         <div className="location"><span className="location-dot" /><span>SEOUL, SOUTH KOREA</span><span className="location-divider">—</span><time dateTime={now.toISOString()}>{seoulClock.format(now)} KST</time></div>
-        <div className="bottom-message">A PLACE TO DISCOVER, SHARE &amp; CONNECT</div>
-        <a className="discover-link" href="#about">EXPLORE KOREA <ArrowRight size={14} /></a>
+        <nav className="bottom-message footer-links" aria-label="Footer">
+          <a href="/about.html">ABOUT</a>
+          <a href="/privacy-policy.html">PRIVACY POLICY</a>
+        </nav>
+        <a className="discover-link" href="/about.html">EXPLORE KOREA <ArrowRight size={14} /></a>
       </footer>
     </main>
   );
