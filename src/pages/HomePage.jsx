@@ -43,8 +43,8 @@ export default function HomePage() {
       <section className="hero" id="home">
         <div className="intro">
           <div className="eyebrow"><span className="eyebrow-line" /> A WINDOW INTO KOREA <span className="eyebrow-dot">✳</span></div>
-          <h1>Make yourself<br /><em>at home in Korea.</em></h1>
-          <p>Discover the culture, find the everyday answers, and connect with people who understand what it is like to find your feet in Korea.</p>
+          <h1>Unbox<br /><em>Korea’s Hidden Side.</em></h1>
+          <p>Go beyond the familiar and discover a new side of Korea.<br className="desktop-break" /> Stories, places, and culture—shared with the world.</p>
           <a className="hero-cta" href="#ways-to-explore">Explore Korea together <ArrowDown size={16} /></a>
         </div>
       </section>
