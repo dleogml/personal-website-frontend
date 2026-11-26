@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { ArrowDown, ArrowUp } from 'lucide-react';
 
 const stories = [
@@ -29,6 +29,7 @@ const stories = [
 ];
 
 export default function HomePage() {
+  const pageRef = useRef(null);
   const [showTop, setShowTop] = useState(false);
 
   useEffect(() => {
@@ -38,9 +39,87 @@ export default function HomePage() {
     return () => window.removeEventListener('scroll', updateVisibility);
   }, []);
 
+  useEffect(() => {
+    const page = pageRef.current;
+    if (!page) return undefined;
+
+    let lockedUntil = 0;
+    let touchStartY = 0;
+    let touchStartX = 0;
+    const getCurrentSection = () => {
+      const sections = [...page.querySelectorAll('.fullpage-section')];
+      const scrollPosition = window.scrollY;
+      return sections.reduce((closestIndex, section, index) => {
+        const sectionTop = section.getBoundingClientRect().top + scrollPosition;
+        const closestTop = sections[closestIndex].getBoundingClientRect().top + scrollPosition;
+        const targetTop = index === 0 ? 0 : sectionTop;
+        const closestTargetTop = closestIndex === 0 ? 0 : closestTop;
+        return Math.abs(targetTop - scrollPosition) < Math.abs(closestTargetTop - scrollPosition) ? index : closestIndex;
+      }, 0);
+    };
+
+    const moveSection = (direction) => {
+      const sections = page.querySelectorAll('.fullpage-section');
+      const currentIndex = getCurrentSection();
+      const nextIndex = currentIndex + direction;
+      if (nextIndex < 0 || nextIndex >= sections.length) return false;
+
+      lockedUntil = Date.now() + 1000;
+      const behavior = window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth';
+      if (nextIndex === 0) window.scrollTo({ top: 0, behavior });
+      else sections[nextIndex].scrollIntoView({ block: 'start', behavior });
+      return true;
+    };
+
+    const onWheel = (event) => {
+      if (Math.abs(event.deltaY) < 20) return;
+      if (Date.now() < lockedUntil) {
+        event.preventDefault();
+        return;
+      }
+      const direction = event.deltaY > 0 ? 1 : -1;
+      const currentIndex = getCurrentSection();
+      const sections = page.querySelectorAll('.fullpage-section');
+      if ((direction > 0 && currentIndex === sections.length - 1) || (direction < 0 && currentIndex === 0)) return;
+      event.preventDefault();
+      moveSection(direction);
+    };
+
+    const onTouchStart = (event) => {
+      touchStartY = event.touches[0].clientY;
+      touchStartX = event.touches[0].clientX;
+    };
+    const onTouchMove = (event) => {
+      const deltaY = touchStartY - event.touches[0].clientY;
+      const verticalGesture = Math.abs(deltaY) > Math.abs(event.touches[0].clientX - touchStartX);
+      const currentIndex = getCurrentSection();
+      const sections = page.querySelectorAll('.fullpage-section');
+      const atEdge = (deltaY > 0 && currentIndex === sections.length - 1) || (deltaY < 0 && currentIndex === 0);
+      if (verticalGesture && !atEdge) event.preventDefault();
+    };
+    const onTouchEnd = (event) => {
+      const deltaY = touchStartY - event.changedTouches[0].clientY;
+      if (Math.abs(deltaY) < 50 || Date.now() < lockedUntil) return;
+      const currentIndex = getCurrentSection();
+      const sections = page.querySelectorAll('.fullpage-section');
+      if ((deltaY > 0 && currentIndex < sections.length - 1) || (deltaY < 0 && currentIndex > 0)) moveSection(deltaY > 0 ? 1 : -1);
+    };
+
+    page.addEventListener('wheel', onWheel, { passive: false });
+    page.addEventListener('touchstart', onTouchStart, { passive: true });
+    page.addEventListener('touchmove', onTouchMove, { passive: false });
+    page.addEventListener('touchend', onTouchEnd, { passive: true });
+    return () => {
+      page.removeEventListener('wheel', onWheel);
+      page.removeEventListener('touchstart', onTouchStart);
+      page.removeEventListener('touchmove', onTouchMove);
+      page.removeEventListener('touchend', onTouchEnd);
+    };
+  }, []);
+
   return (
-    <>
-      <section className="hero" id="home">
+    <div className="home-fullpage" ref={pageRef}>
+      <section className="hero fullpage-section" id="home">
         <div className="intro">
           <div className="eyebrow"><span className="eyebrow-line" /> A WINDOW INTO KOREA <span className="eyebrow-dot">✳</span></div>
           <h1>Unbox<br /><em>Korea’s Hidden Side.</em></h1>
@@ -51,7 +130,7 @@ export default function HomePage() {
 
       <section className="home-stories" id="ways-to-explore" aria-label="What you can discover with Unbox Korea">
         {stories.map((story) => (
-          <article className="story-panel" key={story.number}>
+          <article className="story-panel fullpage-section" key={story.number}>
             <img className="story-image" src={story.image} alt={story.alt} loading="lazy" />
             <div className="story-content">
               <span className="story-number">{story.number}</span>
@@ -66,6 +145,6 @@ export default function HomePage() {
       <button className={`back-to-top${showTop ? ' is-visible' : ''}`} type="button" aria-label="Back to top" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
         <ArrowUp size={18} />
       </button>
-    </>
+    </div>
   );
 }

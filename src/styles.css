@@ -15,7 +15,6 @@
 
 * { box-sizing: border-box; }
 html, body, #root { width: 100%; min-width: 320px; min-height: 100%; margin: 0; }
-html:has(.landing) { scroll-snap-type: y mandatory; }
 body { min-height: 100vh; }
 a { color: inherit; text-decoration: none; }
 button, input { font: inherit; }
@@ -85,7 +84,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 .status-message { color: rgba(255,255,255,.43); }
 
 .home-stories { display: flex; flex-direction: column; }
-.story-panel { position: relative; display: flex; min-height: 100vh; min-height: 100svh; align-items: center; overflow: hidden; padding: 80px max(7vw, calc((100vw - 1100px) / 2)); isolation: isolate; scroll-snap-align: start; scroll-snap-stop: always; }
+.story-panel { position: relative; display: flex; min-height: 100vh; min-height: 100svh; align-items: center; overflow: hidden; padding: 80px max(7vw, calc((100vw - 1100px) / 2)); isolation: isolate; }
 .story-image { position: absolute; z-index: -2; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .story-panel::after { position: absolute; z-index: -1; inset: 0; background: linear-gradient(90deg,rgba(15,15,13,.78),rgba(15,15,13,.47) 48%,rgba(15,15,13,.12)),linear-gradient(0deg,rgba(15,15,13,.32),transparent 55%); content: ''; }
 .story-content { width: min(600px,100%); }
@@ -223,5 +222,5 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 }
 
 @media (prefers-reduced-motion: reduce) {
-  html:has(.landing) { scroll-snap-type: none; }
+  .back-to-top { transition: none; }
 }
