@@ -15,8 +15,8 @@ const stories = [
     eyebrow: 'EVERYDAY KOREA',
     title: 'Feel more at home, one day at a time.',
     description: 'Get practical tips for getting around, finding what you need, and settling into everyday life.',
-    image: 'https://images.unsplash.com/photo-1517154421773-0529f29ea451?auto=format&fit=crop&w=2200&q=85',
-    alt: 'A lively street in Seoul, South Korea',
+    image: 'https://images.unsplash.com/photo-1687779176476-55920ac3f400?auto=format&fit=crop&w=2200&q=85',
+    alt: 'Daytime view of Cheonggyecheon stream and its riverside walkways in Seoul',
   },
   {
     number: '03',
@@ -64,7 +64,7 @@ export default function HomePage() {
       const nextIndex = currentIndex + direction;
       if (nextIndex < 0 || nextIndex >= sections.length) return false;
 
-      lockedUntil = Date.now() + 1000;
+      lockedUntil = Date.now() + 450;
       const behavior = window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth';
       if (nextIndex === 0) window.scrollTo({ top: 0, behavior });
       else sections[nextIndex].scrollIntoView({ block: 'start', behavior });
