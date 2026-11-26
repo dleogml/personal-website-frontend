@@ -47,16 +47,22 @@ function SiteHeader() {
 }
 
 function SiteFooter() {
+  const [now, setNow] = useState(() => new Date());
+
+  useEffect(() => {
+    const timer = window.setInterval(() => setNow(new Date()), 30_000);
+    return () => window.clearInterval(timer);
+  }, []);
+
+  const koreaTime = new Intl.DateTimeFormat('en-US', {
+    timeZone: 'Asia/Seoul', hour: '2-digit', minute: '2-digit', hour12: true,
+  }).format(now);
+
   return (
     <footer className="site-footer">
-      <span className="footer-brand">UNBOX KOREA</span>
-      <span className="footer-message">A place to discover, share &amp; connect</span>
-      <nav className="footer-links" aria-label="Footer navigation">
-        <Link to="/about">About</Link>
-        <Link to="/info">Info</Link>
-        <Link to="/contact">Contact</Link>
-        <Link to="/privacy">Privacy</Link>
-      </nav>
+      <time className="footer-time" dateTime={now.toISOString()}>SEOUL, KOREA · {koreaTime} KST</time>
+      <Link className="footer-brand" to="/" aria-label="Unbox Korea home">UNBOX KOREA</Link>
+      <Link className="footer-privacy" to="/privacy">Privacy Policy</Link>
     </footer>
   );
 }
@@ -69,7 +75,6 @@ export default function SiteLayout() {
     <div className={`app-shell${isHome ? ' landing' : ''}`}>
       {isHome && (
         <>
-          <div className="photo photo-city" aria-hidden="true" />
           <div className="grain" aria-hidden="true" />
         </>
       )}
