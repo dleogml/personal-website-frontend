@@ -128,10 +128,6 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 .about-section, .info-row, .contact-card, .help-section { scroll-margin-top: 30px; }
 .about-section + .about-section { margin-top: 62px; }
 .subsection-heading { margin: 0 0 15px; font-family: Georgia,'Noto Sans KR',serif; font-size: clamp(26px,3.5vw,36px); font-weight: 400; letter-spacing: -.04em; }
-.coming-soon { margin: 10px 0 0; color: #e4a082; font-size: 11px; }
-.help-section { margin-top: 30px; padding: 24px 0; border-top: 1px solid var(--line); }
-.help-section h2 { margin: 0 0 10px; font-size: 17px; }
-.help-section > p:not(.coming-soon) { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.8; }
 .inline-link { color: #f0a17d; text-decoration: underline; text-underline-offset: 3px; }
 .inline-link:hover { color: #ffd0b6; }
 .empty-state { max-width: 640px; margin: 10px auto 0; padding: 42px; border: 1px solid var(--line); background: rgba(255,255,255,.035); text-align: center; }

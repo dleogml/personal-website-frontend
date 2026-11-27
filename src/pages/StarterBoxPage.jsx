@@ -14,13 +14,13 @@ export default function StarterBoxPage() {
   return (
     <article className="page-width document-page">
       <PageIntro eyebrow="Start exploring" title="Your StarterBox for Korea.">
-        Practical starting points for getting to know Korea. Choose a topic and check back as new guides are published.
+        Practical starting points for getting to know Korea.
       </PageIntro>
       <div className="info-list">
         {guides.map(([id, title, description], index) => (
           <section className="info-row" id={id} key={id}>
             <span className="section-number">{String(index + 1).padStart(2, '0')}</span>
-            <div><h2>{title}</h2><p>{description}</p><p className="coming-soon">In-depth guides are coming soon.</p></div>
+            <div><h2>{title}</h2><p>{description}</p></div>
           </section>
         ))}
       </div>

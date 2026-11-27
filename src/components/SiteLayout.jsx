@@ -4,21 +4,21 @@ import { Link, NavLink, Outlet, useLocation } from 'react-router';
 
 const navigation = [
   { to: '/starterbox', label: 'StarterBox', children: [
-    ['Culture & Etiquette', '/starterbox#culture'], ['Food & Dining', '/starterbox#food'],
-    ['Beauty & Shopping', '/starterbox#shopping'], ['Travel & Transit', '/starterbox#travel'],
+    ['Culture & Etiquette', '/starterbox/culture'], ['Food & Dining', '/starterbox/food'],
+    ['Beauty & Shopping', '/starterbox/shopping'], ['Travel & Transit', '/starterbox/travel'],
   ] },
   { to: '/board', label: 'Board', children: [
-    ['Ask Korea', '/board#ask-korea'], ['Local Tips & Reviews', '/board#local-tips'],
-    ['Travel Buddy', '/board#travel-buddy'], ['K-Lounge', '/board#k-lounge'],
+    ['Ask Korea', '/board/ask-korea'], ['Local Tips & Reviews', '/board/local-tips'],
+    ['Travel Buddy', '/board/travel-buddy'], ['K-Lounge', '/board/k-lounge'],
   ] },
   { to: '/notice', label: 'Notice', children: [
-    ['Site Updates', '/notice#updates'], ['Events & Picks', '/notice#events'],
+    ['Site Updates', '/notice/updates'], ['Events & Picks', '/notice/events'],
   ] },
   { to: '/about', label: 'About', children: [
-    ['Our Story & Mission', '/about#story-mission'], ['Advertising & Affiliate Disclosure', '/about#disclosure'],
+    ['Our Story & Mission', '/about/story-mission'], ['Advertising & Affiliate Disclosure', '/about/disclosure'],
   ] },
-  { to: '/contact', label: 'Help', children: [
-    ['FAQ', '/contact#faq'], ['Contact Us', '/contact#contact'], ['Suggestions', '/contact#suggestions'],
+  { to: '/help', label: 'Help', children: [
+    ['FAQ', '/help/faq'], ['Contact Us', '/help/contact'], ['Suggestions', '/help/suggestions'],
   ] },
 ];
 
@@ -26,13 +26,7 @@ function SiteHeader() {
   const [menuOpen, setMenuOpen] = useState(false);
   const location = useLocation();
 
-  useEffect(() => setMenuOpen(false), [location.pathname, location.hash]);
-
-  useEffect(() => {
-    if (!location.hash) return;
-    const targetId = decodeURIComponent(location.hash.slice(1));
-    window.requestAnimationFrame(() => document.getElementById(targetId)?.scrollIntoView());
-  }, [location.hash, location.pathname]);
+  useEffect(() => setMenuOpen(false), [location.pathname]);
 
   return (
     <header className="topbar">

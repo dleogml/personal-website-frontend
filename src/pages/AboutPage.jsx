@@ -21,13 +21,12 @@ export default function AboutPage() {
         <div className="content-grid">
           {storyTopics.map((topic) => <section className="content-card" key={topic.number}><span className="section-number">{topic.number}</span><h3>{topic.title}</h3><p>{topic.text}</p></section>)}
         </div>
-        <aside className="editorial-note">Unbox Korea is in its early public stage. We are developing the site around original, useful stories and guides; new editorial pages will be added as they are ready.</aside>
       </section>
       <section className="about-section disclosure-section" id="disclosure" aria-labelledby="disclosure-heading">
         <h2 className="subsection-heading" id="disclosure-heading">Advertising &amp; Affiliate Disclosure</h2>
         <div className="info-list">
-          <section className="info-row"><span className="section-number">03</span><div><h3>Advertising</h3><p>This site uses Google AdSense technology. Advertising may use cookies and similar identifiers; details and available choices are explained in our <Link className="inline-link" to="/privacy">Privacy Policy</Link>.</p></div></section>
-          <section className="info-row"><span className="section-number">04</span><div><h3>Community and accounts</h3><p>The board, account sign-in, and customer inquiry features are being prepared. They are not currently connected to posting, authentication, or a message service. If affiliate links are introduced, they will be identified clearly; editorial content remains independently prepared.</p></div></section>
+          <section className="info-row"><span className="section-number">01</span><div><h3>Advertising</h3><p>This site uses Google AdSense technology. Advertising may use cookies and similar identifiers; details and available choices are explained in our <Link className="inline-link" to="/privacy">Privacy Policy</Link>.</p></div></section>
+          <section className="info-row"><span className="section-number">02</span><div><h3>Community and accounts</h3><p>The board, account sign-in, and customer inquiry features are not currently connected to posting, authentication, or a message service. If affiliate links are introduced, they will be identified clearly; editorial content remains independently prepared.</p></div></section>
         </div>
       </section>
     </article>
