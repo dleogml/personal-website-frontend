@@ -46,8 +46,8 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 .top-links .nav-group > a { display: inline-flex; align-items: center; gap: 4px; position: relative; padding: 10px 0; transition: color .2s ease; white-space: nowrap; }
 .nav-chevron { opacity: .65; transition: transform .2s ease; }
 .nav-dropdown { position: absolute; top: 100%; left: -16px; z-index: 8; display: grid; min-width: 205px; padding: 8px; border: 1px solid rgba(255,255,255,.15); background: #1b1b18; box-shadow: 0 16px 34px rgba(0,0,0,.35); opacity: 0; visibility: hidden; transform: translateY(5px); transition: opacity .16s ease, transform .16s ease, visibility .16s; }
-.nav-group:hover .nav-dropdown, .nav-group:focus-within .nav-dropdown { opacity: 1; visibility: visible; transform: translateY(0); }
-.nav-group:hover .nav-chevron, .nav-group:focus-within .nav-chevron { transform: rotate(180deg); }
+.nav-group:hover .nav-dropdown, .nav-group:has(:focus-visible) .nav-dropdown { opacity: 1; visibility: visible; transform: translateY(0); }
+.nav-group:hover .nav-chevron, .nav-group:has(:focus-visible) .nav-chevron { transform: rotate(180deg); }
 .top-links .nav-dropdown a { padding: 10px 9px; color: rgba(255,255,255,.76); font-size: 11px; line-height: 1.5; }
 .top-links .nav-dropdown a:hover, .top-links .nav-dropdown a:focus-visible { background: rgba(255,255,255,.07); color: #f0a17d; }
 .top-links a:hover, .top-links a.active { color: #f0a17d; }
