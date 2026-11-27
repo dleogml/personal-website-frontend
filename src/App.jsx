@@ -4,7 +4,8 @@ import AboutPage from './pages/AboutPage.jsx';
 import BoardPage from './pages/BoardPage.jsx';
 import ContactPage from './pages/ContactPage.jsx';
 import HomePage from './pages/HomePage.jsx';
-import InfoPage from './pages/InfoPage.jsx';
+import StarterBoxPage from './pages/StarterBoxPage.jsx';
+import NoticePage from './pages/NoticePage.jsx';
 import LoginPage from './pages/LoginPage.jsx';
 import NotFoundPage from './pages/NotFoundPage.jsx';
 import PrivacyPolicyPage from './pages/PrivacyPolicyPage.jsx';
@@ -15,7 +16,9 @@ export default function App() {
       <Route element={<SiteLayout />}>
         <Route index element={<HomePage />} />
         <Route path="about" element={<AboutPage />} />
-        <Route path="info" element={<InfoPage />} />
+        <Route path="info" element={<Navigate to="/about" replace />} />
+        <Route path="starterbox" element={<StarterBoxPage />} />
+        <Route path="notice" element={<NoticePage />} />
         <Route path="board" element={<BoardPage />} />
         <Route path="contact" element={<ContactPage />} />
         <Route path="login" element={<LoginPage />} />

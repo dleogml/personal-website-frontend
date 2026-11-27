@@ -1,19 +1,38 @@
 import { useEffect, useState } from 'react';
-import { ArrowRight, Menu, X } from 'lucide-react';
+import { ArrowRight, ChevronDown, Menu, X } from 'lucide-react';
 import { Link, NavLink, Outlet, useLocation } from 'react-router';
 
 const navigation = [
-  { to: '/about', label: 'About' },
-  { to: '/info', label: 'Info' },
-  { to: '/board', label: 'Board' },
-  { to: '/contact', label: 'Contact' },
+  { to: '/starterbox', label: 'StarterBox', children: [
+    ['Culture & Etiquette', '/starterbox#culture'], ['Food & Dining', '/starterbox#food'],
+    ['Beauty & Shopping', '/starterbox#shopping'], ['Travel & Transit', '/starterbox#travel'],
+  ] },
+  { to: '/board', label: 'Board', children: [
+    ['Ask Korea', '/board#ask-korea'], ['Local Tips & Reviews', '/board#local-tips'],
+    ['Travel Buddy', '/board#travel-buddy'], ['K-Lounge', '/board#k-lounge'],
+  ] },
+  { to: '/notice', label: 'Notice', children: [
+    ['Site Updates', '/notice#updates'], ['Events & Picks', '/notice#events'],
+  ] },
+  { to: '/about', label: 'About', children: [
+    ['Our Story & Mission', '/about#story-mission'], ['Advertising & Affiliate Disclosure', '/about#disclosure'],
+  ] },
+  { to: '/contact', label: 'Help', children: [
+    ['FAQ', '/contact#faq'], ['Contact Us', '/contact#contact'], ['Suggestions', '/contact#suggestions'],
+  ] },
 ];
 
 function SiteHeader() {
   const [menuOpen, setMenuOpen] = useState(false);
   const location = useLocation();
 
-  useEffect(() => setMenuOpen(false), [location.pathname]);
+  useEffect(() => setMenuOpen(false), [location.pathname, location.hash]);
+
+  useEffect(() => {
+    if (!location.hash) return;
+    const targetId = decodeURIComponent(location.hash.slice(1));
+    window.requestAnimationFrame(() => document.getElementById(targetId)?.scrollIntoView());
+  }, [location.hash, location.pathname]);
 
   return (
     <header className="topbar">
@@ -34,10 +53,15 @@ function SiteHeader() {
       </button>
 
       <nav id="primary-navigation" className={`top-links${menuOpen ? ' is-open' : ''}`} aria-label="Main navigation">
-        {navigation.map(({ to, label }) => (
-          <NavLink key={to} to={to} className={({ isActive }) => (isActive ? 'active' : '')}>
-            {label}
-          </NavLink>
+        {navigation.map(({ to, label, children }) => (
+          <div className="nav-group" key={to}>
+            <NavLink to={to} className={({ isActive }) => (isActive ? 'active' : '')}>
+              {label}<ChevronDown className="nav-chevron" size={12} aria-hidden="true" />
+            </NavLink>
+            <div className="nav-dropdown">
+              {children.map(([childLabel, childTo]) => <Link key={childTo} to={childTo}>{childLabel}</Link>)}
+            </div>
+          </div>
         ))}
       </nav>
 

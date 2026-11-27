@@ -1,25 +1,35 @@
+import { Link } from 'react-router';
 import PageIntro from '../components/PageIntro.jsx';
 import usePageMeta from '../hooks/usePageMeta.js';
 
-const topics = [
-  { number: '01 / OUR PURPOSE', title: 'A wider window into Korea', text: 'Korea is more than its best-known landmarks. Neighborhoods, traditions, food, design, and daily life all offer a different way to understand the country. Unbox Korea is being built to bring those perspectives together in one English-language destination.' },
-  { number: '02 / WHAT WE EXPLORE', title: 'Places, culture, and people', text: 'Our planned guides and explainers focus on places worth understanding, cultural practices in their context, and the small details of everyday life. Each story should give readers a useful reason to look closer, not just another list of things to do.' },
-  { number: '03 / OUR APPROACH', title: 'Useful context, carefully shared', text: 'We aim to publish original writing that is clear, respectful, and practical. When a story depends on current details or historical claims, we intend to check reliable sources and make the context easy for readers to follow.' },
-  { number: '04 / WHO IT IS FOR', title: 'Made for the curious', text: 'Whether you are planning a visit, learning about Korea from abroad, or looking at familiar places in a new way, Unbox Korea is for readers who want to go beyond the surface and keep discovering.' },
+const storyTopics = [
+  { number: '01 / OUR PURPOSE', title: 'A wider window into Korea', text: 'Korea is more than its best-known landmarks. Neighborhoods, traditions, food, design, and daily life all offer a different way to understand the country. Unbox Korea brings those perspectives together in one English-language destination.' },
+  { number: '02 / WHAT WE EXPLORE', title: 'Places, culture, and people', text: 'Our guides and explainers focus on places worth understanding, cultural practices in context, and the small details of everyday life. Each story should give readers a useful reason to look closer.' },
+  { number: '03 / WHO IT IS FOR', title: 'Made for the curious', text: 'Whether you are planning a visit, learning about Korea from abroad, or looking at familiar places in a new way, Unbox Korea is for readers who want to go beyond the surface.' },
 ];
 
 export default function AboutPage() {
-  usePageMeta('About', 'Meet Unbox Korea and learn about the places, culture, and stories the project explores.');
+  usePageMeta('About', 'Learn about Unbox Korea and read our advertising and affiliate disclosure.');
 
   return (
     <article className="page-width document-page">
-      <PageIntro eyebrow="About the project" title="See Korea beyond the familiar.">
-        Unbox Korea is an independent project for curious readers who want to understand the places, culture, and everyday stories that shape Korea. We want to make local context easier to discover and share with readers around the world.
+      <PageIntro eyebrow="About Unbox Korea" title="See Korea beyond the familiar.">
+        Unbox Korea is an independent project for curious readers who want to understand the places, culture, and everyday stories that shape Korea. We make local context easier to discover and share with readers around the world.
       </PageIntro>
-      <div className="content-grid">
-        {topics.map((topic) => <section className="content-card" key={topic.number}><span className="section-number">{topic.number}</span><h2>{topic.title}</h2><p>{topic.text}</p></section>)}
-      </div>
-      <aside className="editorial-note">Unbox Korea is in its early public stage. We are developing the site around original, useful stories and guides; new editorial pages will be added as they are ready.</aside>
+      <section className="about-section" id="story-mission" aria-labelledby="story-heading">
+        <h2 className="subsection-heading" id="story-heading">Our Story &amp; Mission</h2>
+        <div className="content-grid">
+          {storyTopics.map((topic) => <section className="content-card" key={topic.number}><span className="section-number">{topic.number}</span><h3>{topic.title}</h3><p>{topic.text}</p></section>)}
+        </div>
+        <aside className="editorial-note">Unbox Korea is in its early public stage. We are developing the site around original, useful stories and guides; new editorial pages will be added as they are ready.</aside>
+      </section>
+      <section className="about-section disclosure-section" id="disclosure" aria-labelledby="disclosure-heading">
+        <h2 className="subsection-heading" id="disclosure-heading">Advertising &amp; Affiliate Disclosure</h2>
+        <div className="info-list">
+          <section className="info-row"><span className="section-number">03</span><div><h3>Advertising</h3><p>This site uses Google AdSense technology. Advertising may use cookies and similar identifiers; details and available choices are explained in our <Link className="inline-link" to="/privacy">Privacy Policy</Link>.</p></div></section>
+          <section className="info-row"><span className="section-number">04</span><div><h3>Community and accounts</h3><p>The board, account sign-in, and customer inquiry features are being prepared. They are not currently connected to posting, authentication, or a message service. If affiliate links are introduced, they will be identified clearly; editorial content remains independently prepared.</p></div></section>
+        </div>
+      </section>
     </article>
   );
 }
